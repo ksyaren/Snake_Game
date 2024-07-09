@@ -2,7 +2,7 @@ import turtle
 import random
 import time
 
-delay = 0.5
+delay = 0.1
 score = 0
 high_score = 0
 
@@ -89,3 +89,48 @@ wn.onkeypress(go_down, "down")
 wn.onkeypress(go_left, "left")
 wn.onkeypress(go_right, "right")
 
+#* Main Game loop
+while True():
+    wn.update()
+
+    #! border controls
+    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+        time.sleep(1)
+        head.goto(0,0)
+        head.direction = "stop"
+
+        # * hide the tail
+        for segment in segments:
+            segment.goto(1000,1000)
+            segments.clear()
+
+            score =0
+            delay =0.1
+
+            score_display.clear()
+            score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",24, "normal"))
+
+    #! eating controls
+    if head.distance(food) < 20:
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        food.goto(x,y)
+
+        #! adding new segments to tail
+        new_segment = turtle.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.color("light green")
+        new_segment.penup()
+        segments.append(new_segment)
+
+        delay -=0.001
+        score += 1
+
+
+        if score > high_score:
+            high_score =score
+
+        score_display.clear()
+        score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",24,"normal"))
+        
