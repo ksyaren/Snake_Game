@@ -133,4 +133,18 @@ while True():
 
         score_display.clear()
         score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",24,"normal"))
-        
+    
+    #* moving segments
+    for index in range(len(segments)-1, 0, -1):
+        x = segments[index -1].xcor()
+        y= segments[index -1 ].ycor()
+        segments[index].goto(x,y)
+
+    if len(segments) > 0:
+        x = head.xcor()
+        y = head.ycor()
+        segments[0].goto(x,y)
+
+    move()
+
+    # 
