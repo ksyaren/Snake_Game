@@ -81,4 +81,11 @@ def move():
         x = head.xcor()
         head.setx(x+20)
 
-    
+
+#* keyboard's controls
+wn.listen()
+wn.onkeypress(go_up,"Up")
+wn.onkeypress(go_down, "down")
+wn.onkeypress(go_left, "left")
+wn.onkeypress(go_right, "right")
+
