@@ -45,3 +45,40 @@ score_display.penup()
 score_display.hideturtle()
 score_display.goto(0,260) 
 score_display.write("Score: 0   High Score: 0", align="center", font=("courier",24, "normal")) 
+
+# * functions
+
+def go_up():
+    if head.direction != "down":
+        head.direction ="up"
+
+def go_down():
+    if head.direction != "up":
+        head.direction ="down"
+
+def go_left():
+    if head.direction != "right":
+        head.direction ="left"
+
+def go_right():
+    if head.direction !="left":
+        head.driection = "right"
+
+def move():
+    if head.direction == "up":
+        y =head.ycor()
+        head.sety(y+20)
+    
+    if head.direction == "down":
+        y =head.ycor()
+        head.sety(y-20)
+
+    if head.direction == "left":
+        x = head.xcor()
+        head.setx(x-20)
+
+    if head.direction == "right":
+        x = head.xcor()
+        head.setx(x+20)
+
+    
