@@ -19,7 +19,19 @@ wn.tracer(0)   # ! This will stop the screen from updating automatically
 head = turtle.Turtle()
 head.speed(0)
 head.shape("square")
-head.color("blue")
+head.color("green")
 head.penup()
 head.goto(0,0) # * snake stops in the middle of the screen
 head.direction = "stop"
+
+# * snake food
+
+food = turtle.Turtle()
+food.speed(0)
+food.shape("circle")
+food.color("red")
+food.penup()
+food.goto(0,100)
+
+# * snake segments
+segments = [] 
