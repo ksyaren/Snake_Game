@@ -9,7 +9,7 @@ high_score = 0
 # * create the screen 
 # ! wn represents the graphic display 
 
-wn = turtle.screen()
+wn = turtle.Screen() 
 wn.title("Snake Game")
 wn.bgcolor("black")
 wn.setup(width = 600, height= 600)
@@ -35,3 +35,13 @@ food.goto(0,100)
 
 # * snake segments
 segments = [] 
+
+# * pen for the score
+score_display = turtle.Turtle()
+score_display.speed(0)
+score_display.shape("square")
+score_display.color("white")
+score_display.penup()
+score_display.hideturtle()
+score_display.goto(0,260) 
+score_display.write("Score: 0   High Score: 0", align="center", font=("courier",24, "normal")) 
