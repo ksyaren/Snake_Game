@@ -44,7 +44,7 @@ score_display.color("white")
 score_display.penup()
 score_display.hideturtle()
 score_display.goto(0,260) 
-score_display.write("Score: 0   High Score: 0", align="center", font=("courier",24, "normal")) 
+score_display.write("Score: 0   High Score: 0", align="center", font=("courier",21, "normal")) 
 
 # * functions
 
@@ -61,8 +61,8 @@ def go_left():
         head.direction ="left"
 
 def go_right():
-    if head.direction !="left":
-        head.driection = "right"
+    if head.direction != "left":
+        head.direction = "right"
 
 def move():
     if head.direction == "up":
@@ -75,22 +75,22 @@ def move():
 
     if head.direction == "left":
         x = head.xcor()
-        head.setx(x-20)
+        head.setx(x - 20)
 
     if head.direction == "right":
         x = head.xcor()
-        head.setx(x+20)
+        head.setx(x + 20)
 
 
 #* keyboard's controls
 wn.listen()
 wn.onkeypress(go_up,"Up")
-wn.onkeypress(go_down, "down")
-wn.onkeypress(go_left, "left")
-wn.onkeypress(go_right, "right")
+wn.onkeypress(go_down, "Down")
+wn.onkeypress(go_left, "Left")
+wn.onkeypress(go_right,"Right")
 
 #* Main Game loop
-while True():
+while True:
     wn.update()
 
     #! border controls
@@ -102,13 +102,14 @@ while True():
         # * hide the tail
         for segment in segments:
             segment.goto(1000,1000)
-            segments.clear()
 
-            score =0
-            delay =0.1
+        segments.clear()
 
-            score_display.clear()
-            score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",24, "normal"))
+        score =0
+        delay =0.1
+
+        score_display.clear()
+        score_display.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("courier",21, "normal"))
 
     #! eating controls
     if head.distance(food) < 20:
@@ -122,7 +123,7 @@ while True():
         new_segment.shape("square")
         new_segment.color("light green")
         new_segment.penup()
-        segments.append(new_segment)
+        segments.append(new_segment) 
 
         delay -=0.001
         score += 1
@@ -132,7 +133,7 @@ while True():
             high_score =score
 
         score_display.clear()
-        score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",24,"normal"))
+        score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",21,"normal"))
     
     #* moving segments
     for index in range(len(segments)-1, 0, -1):
@@ -147,4 +148,25 @@ while True():
 
     move()
 
-    # 
+    # * Tail bump checks
+    for segment in segments:
+        if segment.distance(head) < 20:
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction = "stop"
+
+            for segment in segments:
+                segment.goto(1000,1000)
+
+            segments.clear()
+
+            score =0 
+            delay = 0.1
+
+
+            score_display.clear()
+            score_display.write("Score:{}  High Score: {}".format(score, high_score), align="center", font=("courier",21, "normal"))
+
+    time.sleep(delay)
+
+wn.mainloop
