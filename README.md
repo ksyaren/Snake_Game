@@ -1,13 +1,21 @@
-# SNAKE GAME
+# ~ SNAKE GAME  ~ 
 
-## **~****~** **~**        •
 
-![Açıklama metni](C:\Users\ksyar\Pictures\Screenshots\Ekran%20görüntüsü%202024-07-09%20154058.png)
 
-## TRY TO CATCH THE BALL
 
-![Açıklama metni](C:\Users\ksyar\Pictures\Screenshots\Ekran%20görüntüsü%202024-07-09%20154119.png)
+
+
+ ![](https://github.com/ksyaren/Snake_Game_py/blob/main/image1.png)
+
+
+
+## TRY TO CATCH THE BALL 
+![](https://github.com/ksyaren/Snake_Game_py/blob/main/image2.png)
+
+
+
+
+
 
 ## KEEP GOING!
-
-![Açıklama metni](C:\Users\ksyar\Pictures\Screenshots\Ekran%20görüntüsü%202024-07-09%20154446.png)
+![](https://github.com/ksyaren/Snake_Game_py/blob/main/image3.png)
